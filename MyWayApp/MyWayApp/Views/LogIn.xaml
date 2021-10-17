@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyWayApp.Views.LogIn">
+    <ContentPage.Content>
+     
+       
+            <StackLayout Style="{StaticResource LoginStack}">
+                <Label Text="אנשי קשר" Style="{StaticResource FormTitle}"></Label>
+            <Frame BackgroundColor="PeachPuff" HasShadow="False">
+                    <StackLayout>
+                        <Entry x:Name="Email" Text="{Binding Email}" Placeholder="דואר אלקטרוני"   
+                           Keyboard="Email"  
+                           Style="{StaticResource LoginEntry}"/>
+                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="סיסמה" Focused="Password_Focused" 
+                           Style="{StaticResource LoginEntry}"/>
+                    </StackLayout>
+                </Frame>
+                <Button Command="{Binding SubmitCommand}" Text="התחבר" Style="{StaticResource LoginButton}" />
+
+            </StackLayout>
+        
+        
+    </ContentPage.Content>
