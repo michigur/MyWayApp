@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MyWayServerBL.Models
 {
-    public partial class Car
+    public class Car
     {
         public Car()
         {

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
 using System.Net.Http;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+using Xamarin.Essentials;
+using System.IO;
+
 
 namespace MyWayApp.Services
 {
@@ -56,9 +59,20 @@ namespace MyWayApp.Services
             }
 
             if (proxy == null)
-                proxy = new ContactsAPIProxy(baseUri, basePhotosUri);
+                proxy = new MyWayAPIProxy(baseUri, basePhotosUri);
             return proxy;
         }
 
+        private MyWayAPIProxy(string baseUri, string basePhotosUri)
+        {
+            //Set client handler to support cookies!!
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.CookieContainer = new System.Net.CookieContainer();
+
+            //Create client with the handler!
+            this.httpClient = new HttpClient(handler, true);
+            this.baseUri = baseUri;
+            this.basePhotosUri = basePhotosUri;
+        }
     }
 }
