@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 
 
-namespace MyWayServerBL.Models
+namespace MyWayApp.Models
 {
-    public class Car
+    public partial class Car
     {
         public Car()
         {

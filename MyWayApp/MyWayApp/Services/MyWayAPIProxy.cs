@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using MyWayApp.Models;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text.Unicode;
+using System.Text.Encodings.Web;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.IO;
-
 
 namespace MyWayApp.Services
 {
@@ -73,6 +78,37 @@ namespace MyWayApp.Services
             this.httpClient = new HttpClient(handler, true);
             this.baseUri = baseUri;
             this.basePhotosUri = basePhotosUri;
+     
         }
+
+
+        public async Task<Client> LoginAsync(string email, string pass)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.httpClient.GetAsync($"{this.baseUri}/Login?email={email}&pass={pass}");
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
+                        PropertyNameCaseInsensitive = true
+                    };
+                    string content = await response.Content.ReadAsStringAsync();
+                    Client u = JsonSerializer.Deserialize<Client>(content, options);
+                    return u;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
     }
 }

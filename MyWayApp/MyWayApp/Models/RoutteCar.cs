@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace MyWayServerBL.Models
+namespace MyWayApp.Models
 {
     public partial class RoutteCar
     {
