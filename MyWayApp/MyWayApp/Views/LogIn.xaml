@@ -45,9 +45,9 @@
             </Frame>
             <Button Command="{Binding SubmitCommand}" Text="Login" Style="{StaticResource LoginButton}" />
 
+            
         </StackLayout>
-
-
+       
     </ContentPage.Content>
     
 </ContentPage>

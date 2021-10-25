@@ -22,7 +22,7 @@ namespace MyWayApp
         {
             InitializeComponent();
 
-            MainPage = new SignUp();
+            MainPage = new LogIn();
         }
 
         public Client CurrentUser { get; set; }

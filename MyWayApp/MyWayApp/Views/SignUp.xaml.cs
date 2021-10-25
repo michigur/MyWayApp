@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MyWayApp.ViewModels;
 
 namespace MyWayApp.Views
 {
@@ -14,6 +15,7 @@ namespace MyWayApp.Views
     {
         public SignUp()
         {
+            this.BindingContext = new SignUp();
             InitializeComponent();
         }
     }
