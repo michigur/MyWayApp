@@ -31,7 +31,7 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource Stack}">
-            <ScrollView>
+            <ScrollView> 
                 <StackLayout>
                    
                     <Frame Style="{StaticResource logInSignUp}">
